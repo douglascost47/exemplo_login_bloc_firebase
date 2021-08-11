@@ -1,7 +1,10 @@
 
 
 import 'package:exemplo_login/features/onboarding/pages/onboarding_page.dart';
+import 'package:exemplo_login/features/register/bloc/register_bloc.dart';
+import 'package:exemplo_login/features/register/flow/register_flow.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRoutes {
 
@@ -10,13 +13,18 @@ class AppRoutes {
       builder: (context) => const OnBoardingPage(),
     );
     switch (settings.name) {
-      case '/':
+      case OnBoardingPage.route:
         newRoute = MaterialPageRoute(
           builder: (context) => const OnBoardingPage(),
         );
         break;
-      case '/register':
-
+      case RegisterFlow.route:
+        newRoute = MaterialPageRoute(
+          builder: (context) => BlocProvider<RegisterBloc>(
+            create: (context) => RegisterBloc(),
+            child: const RegisterFlow(),
+          ),
+        );
         break;
 
     }

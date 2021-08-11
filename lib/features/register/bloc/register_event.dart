@@ -1,0 +1,17 @@
+import 'package:equatable/equatable.dart';
+
+abstract class RegisterEvent extends Equatable {
+  const RegisterEvent();
+
+  @override
+  List<Object> get props => [];
+
+}
+
+class RegisterUpdate extends RegisterEvent {
+  final String name;
+  final String email;
+  final String password;
+
+  const RegisterUpdate({required this.name,required this.email,required this.password});
+}

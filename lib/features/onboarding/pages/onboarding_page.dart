@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
 
+  static const String route = '/';
 
   @override
   Widget build(BuildContext context) {
