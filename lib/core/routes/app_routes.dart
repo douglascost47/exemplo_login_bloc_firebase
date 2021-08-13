@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRoutes {
 
-  static  Route<dynamic> routes(RouteSettings settings) {
+  static Route<dynamic> routes(RouteSettings settings) {
     var newRoute = MaterialPageRoute(
       builder: (context) => const OnBoardingPage(),
     );

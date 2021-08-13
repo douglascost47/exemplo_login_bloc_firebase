@@ -1,5 +1,8 @@
 import 'package:exemplo_login/features/register/bloc/register_bloc.dart';
 import 'package:exemplo_login/features/register/bloc/register_state.dart';
+import 'package:exemplo_login/features/register/pages/register_email_page.dart';
+import 'package:exemplo_login/features/register/pages/register_name_page.dart';
+import 'package:exemplo_login/features/register/pages/register_password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +20,7 @@ class RegisterFlow extends StatelessWidget {
         return Navigator(
           pages: pages(bloc, state),
           onPopPage: (route, result){
+            bloc.previousPage();
             return route.didPop(result);
           }
         );
@@ -26,8 +30,21 @@ class RegisterFlow extends StatelessWidget {
 
 
   List<Page<dynamic>> pages(RegisterBloc bloc, RegisterState state) {
-    var list = [];
+    final List<Page<dynamic>> list = [];
 
-    return [];
+    final namePage = RegisterNamePage.page(name: bloc.register.name);
+    final emailPage = RegisterEmailPage.page(email: bloc.register.email);
+    final passwordPage = RegisterPasswordPage.page();
+
+    if(state is RegisterNamePageState) {
+      list.add(namePage);  
+    }
+    if(state is RegisterEmailPageState) {
+      list.addAll([namePage, emailPage]);
+    }
+    if(state is RegisterPasswordPageState) {
+      list.addAll([namePage, emailPage, passwordPage]);
+    }
+    return list;
   }
 }

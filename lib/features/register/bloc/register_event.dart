@@ -15,3 +15,7 @@ class RegisterUpdate extends RegisterEvent {
 
   const RegisterUpdate({required this.name,required this.email,required this.password});
 }
+
+class RegisterNextPage extends RegisterEvent {}
+
+class RegisterPreviousPage extends RegisterEvent {}

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RegisterPasswordPage extends StatelessWidget {
   const RegisterPasswordPage({Key? key}) : super(key: key);  
 
+  static Page<dynamic> page() => const MaterialPage(child: RegisterPasswordPage());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,3 +1,4 @@
+import 'package:exemplo_login/features/register/flow/register_flow.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -28,7 +29,9 @@ class OnBoardingPage extends StatelessWidget {
                   height: 48,
                   width: double.maxFinite,
                   child: ElevatedButton(
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegisterFlow.route);
+                    },
                     child: const Text('Registrar'),
                   ),
                 )
